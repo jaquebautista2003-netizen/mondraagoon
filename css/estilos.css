@@ -211,3 +211,42 @@ footer a:hover{color:#fff}
   .stat b{font-size:40px}
   .brand-txt small{display:none}
 }
+
+/* ===== Menú con botones de cotización ===== */
+nav ul{gap:22px}
+.btn.line{background:transparent;color:var(--navy) !important;border:2px solid var(--line);padding:10px 16px;font-size:16px}
+.btn.line:hover,.btn.line.on{border-color:var(--red);color:var(--red) !important;background:#f3f4ff}
+nav .btn{padding:11px 18px;font-size:16px;white-space:nowrap}
+.badge-n{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:var(--red);color:#fff;font:700 12px 'Barlow';margin-left:2px}
+.badge-n[hidden]{display:none}
+@media (max-width:1180px){
+  nav ul{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;padding:16px 20px 20px;gap:10px;border-bottom:1px solid var(--line);box-shadow:0 14px 30px rgba(20,37,74,.12)}
+  nav ul.open{display:flex}
+  nav ul a{display:block;padding:6px 0}
+  nav ul .btn{justify-content:center}
+  .menu-btn{display:block}
+}
+
+/* ===== Mapa, enlaces y formulario de contacto ===== */
+.map{margin-top:22px;aspect-ratio:16/9;border-radius:4px;overflow:hidden;border:1px solid var(--line);background:#e5e9f2}
+.map iframe{width:100%;height:100%;border:0;display:block}
+.map-link{display:inline-block;margin-top:10px;font-weight:600;color:var(--red)}
+.info-item a,.topbar a,footer a{color:inherit}
+.info-item a:hover{color:var(--red)}
+.info-item b{overflow-wrap:anywhere}
+.contact>*,.foot>*{min-width:0}
+footer li{overflow-wrap:anywhere}
+.form-btns{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.form-btns .btn{margin-top:0;width:100%;justify-content:center}
+.btn.wa-btn{background:#1fa855}
+.btn.wa-btn:hover{background:#178a45}
+.btn[disabled]{opacity:.6;cursor:wait}
+input.err,textarea.err{border-color:#d33}
+.note.ok{color:#178a45;font-weight:600}
+.note.bad{color:#c62828;font-weight:600}
+.note a{color:var(--red);text-decoration:underline}
+a.mach{display:block;transition:transform .2s,border-color .2s}
+a.mach:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.35)}
+.machine .more{margin-top:32px}
+@media (max-width:620px){.form-btns{grid-template-columns:1fr}}
+html{scroll-padding-top:90px}

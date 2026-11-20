@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cotizar maquinaria · Urbanizaciones Mondragón</title>
+<meta name="description" content="Renta de maquinaria pesada en el Estado de México: excavadoras, retroexcavadoras, motoconformadoras, compactadores, pipas y más. Arma tu cotización en línea.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/plataforma.css">
+</head>
+<body class="pg-maq">
+
+<div class="topbar"><div class="wrap">
+  <span>📍 Carr. Panamericana Km 73+100, Maye El Fresno, Atlacomulco, Méx.</span>
+  <span>Oficina <a href="tel:+527121977773"><b>712 197 7773</b></a> &nbsp;·&nbsp; Cel. <a href="tel:+527121170008"><b>712 117 0008</b></a></span>
+</div></div>
+
+<header class="nav"><div class="wrap">
+  <a href="index.html" class="brand"><img class="logo-img" src="img/logo/logo-umo.png" alt="Urbanizaciones Mondragón, S.A. de C.V."></a>
+  <nav>
+    <button class="menu-btn" aria-label="Menú" aria-expanded="false">☰</button>
+    <ul id="menu">
+      <li><a href="index.html#nosotros">Nosotros</a></li>
+      <li><a href="index.html#obras">Obras</a></li>
+      <li><a href="index.html#registros">Registros</a></li>
+      <li><a href="servicios.html" class="btn line">Tipo de servicio</a></li>
+      <li><a href="maquinaria.html" class="btn line on" aria-current="page">Cotizar maquinaria <span class="badge-n" data-badge-maq hidden>0</span></a></li>
+      <li><a href="index.html#contacto" class="btn">Cotizar obra</a></li>
+    </ul>
+  </nav>
+</div></header>
+
+<!-- ENCABEZADO -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('img/maquinaria/excavadoras.webp')"></div>
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Inicio</a> / <span>Renta de maquinaria</span></div>
+    <h1>Cotizar maquinaria</h1>
+    <p>Selecciona el equipo que necesitas, indica las fechas de tu obra y envía una sola solicitud. Te respondemos con una propuesta formal con tarifas, flete e impuestos.</p>
+    <ol class="steps">
+      <li class="on"><b>1</b>Elige tu equipo</li>
+      <li><b>2</b>Periodo y servicios</li>
+      <li><b>3</b>Tus datos</li>
+      <li><b>4</b>Confirma y envía</li>
+    </ol>
+  </div>
+</section>
+
+<main class="wrap maq-layout">
+
+  <!-- CATÁLOGO -->
+  <section class="catalogo" aria-label="Catálogo de maquinaria">
+    <div class="cat-tools">
+      <div class="chips" id="cat-filtros" role="tablist"></div>
+      <label class="buscar"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="cat-buscar" type="search" placeholder="Buscar equipo o marca…" aria-label="Buscar equipo"></label>
+    </div>
+
+    <div class="restore" id="restore" hidden></div>
+
+    <div class="maq-grid" id="maq-grid"></div>
+
+    <h2 class="sub-h">Más equipo disponible</h2>
+    <div class="extra-list" id="maq-extra"></div>
+
+    <div class="aviso-precios">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+      <p><b>¿Por qué no mostramos precios?</b> La tarifa depende de la ubicación de la obra, la duración de la renta, el operador, el combustible y el traslado. Cada propuesta se ajusta a las condiciones reales de tu trabajo.</p>
+    </div>
+
+    <section class="mis-sol" id="mis-solicitudes" hidden>
+      <h2 class="sub-h">Mis solicitudes</h2>
+      <div id="lista-solicitudes"></div>
+    </section>
+  </section>
+
+  <!-- CARRITO -->
+  <aside class="carrito" id="carrito" aria-label="Mi cotización">
+    <div class="car-head">
+      <div><small>Mi cotización</small><h3>Maquinaria seleccionada</h3></div>
+      <span class="car-count" id="car-count">0 unidades</span>
+      <button class="car-close" id="car-close" aria-label="Cerrar">×</button>
+    </div>
+
+    <div class="car-body">
+      <div id="car-items"></div>
+      <div class="car-empty" id="car-empty">
+        <svg width="46" height="46" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M3 17h2l3-8h6l2 4h3a2 2 0 012 2v2h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+        <p>Aún no agregas equipo.<br>Elige del catálogo para armar tu cotización.</p>
+      </div>
+
+      <div class="car-sec" id="sec-periodo">
+        <h4>Periodo de renta</h4>
+        <div class="row2">
+          <label>Inicio<input type="date" id="f-ini"></label>
+          <label>Término<input type="date" id="f-fin"></label>
+        </div>
+        <p class="hint" id="dur"></p>
+        <label class="switch"><input type="checkbox" id="fechas-ind"><span></span>Fechas distintas por equipo</label>
+        <label class="lbl">Jornada de trabajo
+          <select id="jornada">
+            <option value="">Por definir</option>
+            <option>8 horas por día</option><option>10 horas por día</option><option>12 horas por día</option><option>24 horas (doble turno)</option>
+          </select></label>
+      </div>
+
+      <div class="car-sec">
+        <h4>Servicios adicionales</h4>
+        <div class="lbl">Operador</div>
+        <div class="seg" data-name="operador">
+          <button type="button" data-v="Con operador" class="on">Con operador</button>
+          <button type="button" data-v="Sin operador">Sin operador</button>
+          <button type="button" data-v="Por definir">Por definir</button>
+        </div>
+        <div class="lbl">Combustible</div>
+        <div class="seg" data-name="combustible">
+          <button type="button" data-v="Incluido">Incluido</button>
+          <button type="button" data-v="Por cuenta del cliente">Lo pone el cliente</button>
+          <button type="button" data-v="Por definir" class="on">Por definir</button>
+        </div>
+        <label class="check"><input type="checkbox" id="traslado"><span>Solicitar traslado de maquinaria a la obra</span></label>
+        <div class="traslado-box" id="traslado-box" hidden>
+          <div class="row2">
+            <label>Municipio *<input id="t-mun" placeholder="Ej. Atlacomulco"></label>
+            <label>Localidad<input id="t-loc" placeholder="Ej. San Juan de los Jarros"></label>
+          </div>
+          <label>Ubicación en Google Maps<input id="t-maps" placeholder="Pega aquí el enlace de la ubicación"></label>
+          <button type="button" class="link-btn" id="t-geo">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+            Usar mi ubicación actual</button>
+          <p class="hint">El flete se cotiza de ida y regreso según la distancia y el tipo de equipo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-foot">
+      <button class="btn full" id="btn-continuar" disabled>Continuar con mis datos →</button>
+      <div class="car-actions">
+        <button type="button" class="link-btn" id="btn-guardar">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Guardar para después</button>
+        <button type="button" class="link-btn muted" id="btn-vaciar">Vaciar</button>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<!-- Barra inferior en celular -->
+<button class="car-bar" id="car-bar" hidden>
+  <span><b id="bar-n">0</b> unidades en tu cotización</span><span class="bar-cta">Ver cotización ↑</span>
+</button>
+<div class="velo" id="velo" hidden></div>
+
+<!-- ASISTENTE: datos, resumen y confirmación -->
+<dialog class="wizard" id="wizard" aria-labelledby="wz-title">
+  <form method="dialog" class="wz-x"><button aria-label="Cerrar">×</button></form>
+
+  <!-- Paso 3 -->
+  <section class="wz-step" data-step="3">
+    <div class="wz-top"><span class="pill">Paso 3 de 4</span><h2 id="wz-title">Tus datos</h2><p>Para enviarte la propuesta formal.</p></div>
+    <form id="form-datos" novalidate>
+      <div class="row2">
+        <label>Nombre completo *<input name="nombre" required autocomplete="name"></label>
+        <label>Empresa o dependencia<input name="empresa" autocomplete="organization" placeholder="Opcional"></label>
+      </div>
+      <div class="row2">
+        <label>Teléfono *<input name="telefono" type="tel" required pattern="[0-9 +()-]{10,18}" autocomplete="tel" placeholder="10 dígitos"></label>
+        <label>Correo *<input name="correo" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="row2">
+        <label>Tipo de cliente
+          <select name="tipo"><option>Particular</option><option>Empresa privada</option><option>Constructora</option><option>Dependencia de gobierno</option></select></label>
+        <label>Requiere factura
+          <select name="factura"><option>Sí</option><option>No</option></select></label>
+      </div>
+      <label>Nombre o descripción de la obra<input name="obra" placeholder="Ej. Pavimentación de calle principal, 300 m"></label>
+      <label>Comentarios<textarea name="comentarios" rows="3" placeholder="Horarios de acceso, condiciones del terreno, etc."></textarea></label>
+      <div class="wz-btns">
+        <button type="button" class="btn outline" data-close>← Seguir eligiendo</button>
+        <button type="submit" class="btn">Revisar solicitud →</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Paso 4 -->
+  <section class="wz-step" data-step="4" hidden>
+    <div class="wz-top"><span class="pill">Paso 4 de 4</span><h2>Revisa tu solicitud</h2><p>Confirma cantidades, fechas, servicios y ubicación antes de enviar.</p></div>
+    <div id="resumen" class="resumen"></div>
+    <label class="check"><input type="checkbox" id="acepto"><span>Acepto el <a href="aviso-privacidad.html" target="_blank">aviso de privacidad</a>.</span></label>
+    <p class="note" id="wz-msg"></p>
+    <div class="wz-btns">
+      <button type="button" class="btn outline" data-goto="3">← Editar datos</button>
+      <button type="button" class="btn wa-btn" id="enviar-wa">Enviar por WhatsApp</button>
+      <button type="button" class="btn" id="enviar-correo">Enviar solicitud</button>
+    </div>
+  </section>
+
+  <!-- Listo -->
+  <section class="wz-step" data-step="5" hidden>
+    <div class="ok-box">
+      <div class="ok-ic"><svg width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></div>
+      <small>Folio</small>
+      <div class="folio" id="ok-folio">UM-RM-0000</div>
+      <span class="estado">Cotización solicitada</span>
+      <p>Recibimos tu solicitud. Un asesor la revisará y te enviará una <b>propuesta formal en PDF</b> con tarifas, condiciones de renta, flete e impuestos.</p>
+      <ol class="timeline">
+        <li class="done">Solicitud enviada</li>
+        <li>En revisión</li>
+        <li>Propuesta en PDF</li>
+      </ol>
+      <div class="wz-btns center">
+        <button type="button" class="btn outline" id="ok-print">Descargar comprobante</button>
+        <button type="button" class="btn" id="ok-nueva">Nueva cotización</button>
+      </div>
+    </div>
+  </section>
+</dialog>
+
+<!-- Comprobante para imprimir -->
+<div id="print-area" class="print-only"></div>
+
+<footer><div class="wrap">
+  <div class="legal"><span>© 2026 Urbanizaciones Mondragón, S.A. de C.V. · RFC UMO091029N52</span><span><a href="aviso-privacidad.html">Aviso de privacidad</a> · <a href="index.html#contacto">Contacto</a></span></div>
+</div></footer>
+
+<a class="wa" href="https://wa.me/527121170008?text=Hola%2C%20quiero%20cotizar%20renta%20de%20maquinaria." target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg></a>
+
+<script src="js/comun.js"></script>
+<script src="js/datos-maquinaria.js"></script>
+<script src="js/maquinaria.js"></script>
+</body>
+</html>
